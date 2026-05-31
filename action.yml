@@ -1,0 +1,19 @@
+name: "Saludar"
+description: "Saluda a alguien con la fecha actual"
+inputs:
+  who:
+    description: "A quien saludar"
+    required: true
+    default: "Mundo"
+  greeting:
+    description: "Tipo de saludo"
+    default: "Hola"
+outputs:
+  message:
+    description: "Mensaje completo"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.greeting }}
+    - ${{ inputs.who }}
